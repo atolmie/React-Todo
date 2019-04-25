@@ -9,18 +9,9 @@ class Todo extends React.Component {
     }
     render() {
         return (
-          <div className="todoListMain">
-            <div className="header">
-              <form onSubmit={this.addItem}>
-                <input ref={(a) => this._inputElement = a} 
-                        placeholder="enter task">
-                </input>
-                <button type="submit">add</button>
-              </form>
-            </div>
-          </div>
+            <div> {this.props.taskName}</div>
         );
-      }
+    }
 }
 
 export default Todo; 

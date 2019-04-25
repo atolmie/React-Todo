@@ -9,15 +9,20 @@ class TodoList extends React.Component {
     }
 
     setTaskName = (event) => {
-        this.setState({taskName: event.target.value});
+        this.setState({ taskName: event.target.value });
+    }
+
+    handleSubmit = () => {
+        this.props.addItem(this.state.taskName);
+        this.setState({ taskName: '' });
     }
 
     render() {
         return (
             <div className="todoListMain">
                 <div className="header">
-                    <input placeholder="enter task" onChange={(e) => this.setTaskName(e)} value={this.state.taskName}/>
-                    <button type="submit" onClick={() => this.props.addItem(this.state.taskName)}>add</button>
+                    <input placeholder="enter task" onChange={this.setTaskName} value={this.state.taskName} />
+                    <button type="submit" onClick={this.handleSubmit}>add</button>
                 </div>
             </div>
         );

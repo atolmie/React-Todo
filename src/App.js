@@ -1,6 +1,7 @@
 import React from 'react';
 import Todo from './components/TodoComponents/Todo';
 import TodoForm from './components/TodoComponents/TodoForm';
+import TodoList from './components/TodoComponents/TodoList';
 
 class App extends React.Component {
   constructor() {
@@ -20,7 +21,7 @@ class App extends React.Component {
     };
     const taskList = this.state.tasks.slice();
     taskList.push(newTask);
-    this.setState({tasks: taskList});
+    this.setState({ tasks: taskList });
   };
 
 
@@ -33,20 +34,21 @@ class App extends React.Component {
       <div>
         <h2>
           <div className="todoListMain">
-          <div className="header">
-            <TodoForm addItem={this.handleChanges}/>
+            <div className="header">
+              <TodoForm addItem={this.handleChanges} />
+              <TodoList tasks={this.state.tasks} />
+            </div>
           </div>
-        </div>
-      
+
         </h2>
-        
+
       </div>
     );
   }
 }
 
-export default App; 
+export default App;
 
-{/* <TodoForm onCreate={handleChanges} /> */}
-{/* Todo form */}
-{/* Todo list - inside, loop through state tasks and render each item in Todo.js */}
+{/* <TodoForm onCreate={handleChanges} /> */ }
+{/* Todo form */ }
+{/* Todo list - inside, loop through state tasks and render each item in Todo.js */ }

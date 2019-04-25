@@ -6,5 +6,3 @@ import TodoList from './components/TodoComponents/TodoList';
 
 render(<App />, document.getElementById('root'));
 
-
-
