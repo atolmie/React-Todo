@@ -5,13 +5,18 @@ class Todo extends React.Component {
     constructor() {
         super();
         this.state = {};
-
     }
     render() {
         return (
-            <div> {this.props.taskName}</div>
+            <div onClick={() => this.props.toggleComplete(this.props.task.id)}
+                className={this.props.task.completed ? 'complete' : ''}>
+                {this.props.task.task}
+            </div>
         );
     }
 }
 
-export default Todo; 
+export default Todo;
+
+
+

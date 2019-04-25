@@ -9,7 +9,10 @@ class TodoList extends Component {
 
     renderList = () => {
         const taskList = this.props.tasks.map(task => {
-            return <Todo key={task.task} taskName={task.task} />
+            return (<Todo key={task.id}
+                task={task}
+                toggleComplete={this.props.completeTask}
+            />)
         })
         return <div>{taskList}</div>
     }

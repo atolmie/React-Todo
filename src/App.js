@@ -24,6 +24,14 @@ class App extends React.Component {
     this.setState({ tasks: taskList });
   };
 
+  handleComplete = taskID => {
+    this.setState({
+      tasks: this.state.tasks.map(rec =>
+        rec.id === taskID ? { ...rec, completed: !rec.completed } : rec
+      )
+    });
+  }
+
 
 
   // you will need a place to store your state in this component.
@@ -36,7 +44,7 @@ class App extends React.Component {
           <div className="todoListMain">
             <div className="header">
               <TodoForm addItem={this.handleChanges} />
-              <TodoList tasks={this.state.tasks} />
+              <TodoList tasks={this.state.tasks} completeTask={this.handleComplete} />
             </div>
           </div>
 
@@ -49,6 +57,3 @@ class App extends React.Component {
 
 export default App;
 
-{/* <TodoForm onCreate={handleChanges} /> */ }
-{/* Todo form */ }
-{/* Todo list - inside, loop through state tasks and render each item in Todo.js */ }
