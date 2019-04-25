@@ -1,5 +1,6 @@
 import React from 'react';
 import Todo from './components/TodoComponents/Todo';
+import TodoForm from './components/TodoComponents/TodoForm';
 
 class App extends React.Component {
   constructor() {
@@ -11,10 +12,9 @@ class App extends React.Component {
 
   // need method for adding task to state
   // this will handle to onClick method from TodoForm
-  handleChanges = event => {
-    console.log(event.target.value);
+  handleChanges = taskName => {
     const newTask = {
-      task: event.target.value,
+      task: taskName,
       id: Date.now(),
       completed: false
     };
@@ -23,14 +23,7 @@ class App extends React.Component {
     this.setState({tasks: taskList});
   };
 
-  var destination = document.querySelector('#container');
 
-  React DOM render (
-    <div>
-    <p>Todo</p>
-    </div>,
-    destination
-  );
 
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -38,14 +31,22 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
-        {/* <TodoForm onCreate={handleChanges} /> */}
-        {/* Todo form */}
-        {/* Todo list - inside, loop through state tasks and render each item in Todo.js */}
+        <h2>
+          <div className="todoListMain">
+          <div className="header">
+            <TodoForm addItem={this.handleChanges}/>
+          </div>
+        </div>
+      
+        </h2>
+        
       </div>
     );
   }
 }
 
-export default App;
+export default App; 
 
+{/* <TodoForm onCreate={handleChanges} /> */}
+{/* Todo form */}
+{/* Todo list - inside, loop through state tasks and render each item in Todo.js */}
