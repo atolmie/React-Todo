@@ -32,6 +32,18 @@ class App extends React.Component {
     });
   }
 
+  function clearComplete() {
+    props.toggleComplete(props.item.id);
+  }
+
+  return (
+    <div className={classNames} onClick={updatePurchaseHere}>
+      <p>{props.item.name}</p>
+    </div>
+  );
+}
+
+
 
 
   // you will need a place to store your state in this component.
@@ -45,6 +57,7 @@ class App extends React.Component {
             <div className="header">
               <TodoForm addItem={this.handleChanges} />
               <TodoList tasks={this.state.tasks} completeTask={this.handleComplete} />
+              <button onClick={this.removePurchased}>Clear Completed</button>
             </div>
           </div>
 
