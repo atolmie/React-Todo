@@ -1,0 +1,17 @@
+
+
+body {
+    padding: 50px;
+    background-color: #66CC;
+    font-family: sans-serif;
+    font-size: 2em;
+}
+
+#container {
+    display: flex;
+    justify-content: flex;
+}
+
+.complete {
+    text-decoration: line-through;
+}
